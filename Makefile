@@ -1,10 +1,10 @@
-# Builds a docker image for a development box
+# Builds a docker image for a development box with a image name, can change dev to project name
 build:
-	docker build -t dev-box .
+	docker build -t -box .
 
-# Runs the dev-box image in a container
+# Runs the image name in a container
 # This will run the image in the background and map port 2022 to the ssh port on the dev box
-# Feel free to add more ports as needed, (ex: docker run -d -p 2022:22 -p 9000:80 dev-box)
+# Feel free to add more ports as needed, (ex: docker run -d -p 2022:22 -p 9000:80 image name)
 run:
 	docker run -d -p 2022:22 -p 8080:8080 -p 9000:9000 -p 9001:9001 --name dev-box dev-box
 

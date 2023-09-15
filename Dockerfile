@@ -1,19 +1,32 @@
-# As of 2023-09-13, Ubuntu 22.04 is the latest LTS release
-FROM ubuntu:22.04
+# As of 2023-09-13, Ubuntu 22.04 is the latest LTS release but project ask for 18.04
+FROM ubuntu:18.04
 
 # This will stop openssh-server installer from opening a dialog,
 # which would require human input
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Update APT and upgrade currently installed software
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install -y git
-
-# Install SSH so we can connect to the container
-RUN apt-get install -y openssh-server
+# Install software as needed this includes the SSH to connect to the container
+RUN apt-get update && apt-get upgrade -y \
+    curl \
+    sudo \
+    openssh-server\
+    git
 
 # Install other software as needed
+# Install Node.js 12.11.x LTS release
+RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh && \
+    sudo bash nodesource_setup.sh && \
+    sudo apt-get install -y nodejs && \
+    rm nodesource_setup.sh
+# Install Jest, Babal, and ESLint globally
+RUN npm install -g \
+    jest \
+    babel-jest \
+    @babel/core \
+    @babel/preset-env \
+    @babel/cli \
+    eslint
 # Example:
 # RUN apt-get install -y nodejs npm
 # RUN npm install -g create-react-app
@@ -33,8 +46,8 @@ RUN echo 'root:root' | chpasswd
 RUN service ssh start
 
 # Setup git config
-RUN git config --global user.email REPLACE_WITH_YOUR_EMAIL@DOMAIN.COM
-RUN git config --global user.name "REPLACE WITH YOUR NAME"
+RUN git config --global user.email rfarley89@gmail.COM
+RUN git config --global user.name Nomad-Rob
 
 # Example of how to include your SSH key for GitHub:
 # COPY host-machine-github-private-key /root/.ssh/github-private-key
