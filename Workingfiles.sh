@@ -95,4 +95,7 @@ module.exports = {
 };
 EOL
 
-echo "Files created or overwritten successfully."
+# Run npm install to install project dependencies
+npm install
+
+echo "Files created or overwritten successfully, and project dependencies installed."
