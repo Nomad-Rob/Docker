@@ -1,6 +1,8 @@
+# All commands start with make
+
 # Builds a docker image for a development box with a image name, can change dev to project name
 build:
-	docker build -t -box .
+	docker build -t dev-box .
 
 # Runs the image name in a container
 # This will run the image in the background and map port 2022 to the ssh port on the dev box
