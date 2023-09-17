@@ -27,6 +27,8 @@ RUN npm install -g \
     @babel/preset-env \
     @babel/cli \
     eslint
+# Install VIM  
+RUN apt-get install -y vim
 # Example:
 # RUN apt-get install -y nodejs npm
 # RUN npm install -g create-react-app
@@ -46,7 +48,7 @@ RUN echo 'root:root' | chpasswd
 RUN service ssh start
 
 # Setup git config
-RUN git config --global user.email rfarley89@gmail.COM
+RUN git config --global user.email rfarley89@gmail.com
 RUN git config --global user.name Nomad-Rob
 
 # Example of how to include your SSH key for GitHub:
