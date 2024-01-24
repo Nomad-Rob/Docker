@@ -35,3 +35,9 @@ The requirements.txt file is a text file that contains a list of all the python 
 I also have a script that will take your vscode extentions, put them into an extensions.txt file, and then install them into the docker container. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine.
 
 
+# TODO
+- [ ] Add USER to Dockerfile for files during build mount
+- [ ] FROM command can be used to pull and image from a previous build one and start from there
+- [ ] Look add volumes for data persistence
+- [ ] Make a script for the Dockerfile commands that are ok to use after build
+- [ ] 
