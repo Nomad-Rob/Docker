@@ -11,8 +11,8 @@ CONTAINER=bind_mount
 TAG=latest
 PORT=5000
 
-HOST_DIRECTORY=./app
-CONTAINER_DIRECTORY=/app
+HOST_DIRECTORY=./
+CONTAINER_DIRECTORY=/Docker
 
 # Builds a docker image for a development box with an image name
 build:

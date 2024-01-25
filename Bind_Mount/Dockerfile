@@ -2,16 +2,19 @@
 FROM python:3.8
 
 # Set the working directory in the container to /app
-WORKDIR /app
+WORKDIR /Docker
 
 # Copy the requirements.txt file into the container at /app
-COPY requirements.txt /app
+COPY requirements.txt /Docker
 
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY . /Docker
+
+# Change permissions of all files in the /app directory to be accessible by anyone
+RUN chmod -R 777 /Docker
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
@@ -20,5 +23,5 @@ EXPOSE 5000
 ENV API_HOST=0.0.0.0
 ENV API_PORT=5000
 
-# # Run the command to start your application/command starts your API server.
-CMD ["python3", "-m", "api.v1.app"]
+# Keep the container running indef
+CMD ["tail", "-f", "/dev/null"]
