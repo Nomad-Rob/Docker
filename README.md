@@ -13,6 +13,9 @@ In this repo we will see the different ways to setup a docker container. One way
 ## Bind Mount directory
 This will show how to do bind mounts with a docker build
 
+## Multiple Containers
+This will show how to run multiple containers with docker compose.
+
 ## SSH into container
 This will go over how to SSH into a docker container with the VSCode Remote Development extension.
 
