@@ -6,16 +6,30 @@ This will show how to do bind mounts with a docker build
 - IDE (VSCode or whatever you prefer)
 - Makefile extensions (optional) but used in this repo
 
-## Bind Mount
-This will show how to do bind mounts with a docker build
-In you can do bind mounts two differnt ways. Choose the -v or --mount flag. The -v flag is the older way of doing bind mounts. The --mount flag is the newer way of doing bind mounts. The --mount flag is more verbose but it is more flexible. The --mount flag allows you to do more things like mount a file instead of a directory. The --mount flag also allows you to do things like mount a volume from a remote server. For more information on the --mount flag you can go to the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/).
+# Docker Bind Mounts
 
+This document explains how to use bind mounts in Docker, focusing on two different flags: `-v` and `--mount`. Bind mounts are a powerful feature that allows you to mount directories or files from the host machine into a container, enabling a wide range of functionalities including file sharing and persistent data storage.
+
+## The `-v` Flag
+- **Legacy Option**: The `-v` flag is the traditional method of creating bind mounts in Docker.
+- **Usage Simplicity**: It offers a simpler and shorter syntax, making it quick and easy to use for straightforward mounting tasks.
+- **Example Use**: In our Makefile, we use the `-v` option to bind the host's `/app` directory to the same path in the container. This setup is beneficial for keeping the file structure clean and consistent between the host and the container.
+- **Local Development**: Ideal for local development environments, especially when working with IDEs like VS Code, as it allows you to maintain your code on your local machine and utilize VS Code extensions while running and testing your application inside the container.
+- **Syntax**: The `-v` flag follows the format `docker run -v <host-path>:<container-path>`. 
+
+## The `--mount` Flag
+- **Newer and More Verbose**: The `--mount` flag is a more recent addition to Docker, offering a more verbose syntax compared to `-v`.
+- **Increased Flexibility**: It provides enhanced flexibility and functionality, such as mounting individual files (not just directories) and supporting mounts from remote locations.
+- **Advanced Use-Cases**: This flag is particularly useful for more complex or specific mounting requirements, like connecting to remote data sources or explicitly defining mount behavior.
+- **Syntax**: The `--mount` syntax is more detailed, following the format `docker run --mount type=bind,source=<host-path>,target=<container-path>`.
+- **Further Reading**: For an in-depth understanding and additional options available with `--mount`, refer to the [Docker run reference](https://docs.docker.com/engine/reference/commandline/run/).
+
+In conclusion, while the `-v` flag offers simplicity and ease of use for common tasks, the `--mount` flag provides advanced capabilities for more complex mounting needs. The choice between them depends on the specific requirements of your Docker setup and the level of control or functionality you need.
 In our file we choose the -v option in our makefile to do the bind mount. This allows us to utilize the directory /app of the root user in the container. 
 
 THis just keeps your file structure clean and allows you to keep your code in a directory on your local machine while using vscode extensions. 
 
-You can use the shell in the container to get into the environment and run commands inside the container while using the vscode extensions.
-
+**You can use the shell in the container to get into the environment and run commands inside the container while using the vscode extensions.**
 
 ## Usage
 This Dockerfile is tailored for Python applications that require specific packages and run on port 5000. To build and run a container using this Dockerfile:
