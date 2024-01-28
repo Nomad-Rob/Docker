@@ -59,3 +59,4 @@ I also have a script that will take your vscode extentions, put them into an ext
 - [ ] Look add volumes for data persistence
 - [ ] Make a script for the Dockerfile commands that are ok to use after build
 - [ ] Docker compose file example for running multiple containers
+- [ ] Make a video to show how to use the repo
