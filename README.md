@@ -38,7 +38,7 @@ The Makefile is a text file that contains a set of commands to be executed. The 
 The requirements.txt file is a text file that contains a list of all the python packages needed to run the application. This will change depending on the application you are building. This file is used by the Dockerfile to install all the python packages needed to run the application.
 
 ## Extensions.text/extensions.sh
-I also have a script that will take your vscode extentions, put them into an extensions.txt file, and then install them into the docker container. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine.
+I also have a script that will take your vscode extentions, put them into an extensions.txt file, and then install them into the docker container. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine.
 
 # Docker Commands that are useful to know
 - `docker build -t <image-name> .` - This command will build the docker image using the Dockerfile in the current directory. The -t flag is used to tag the docker image with a name. The . is used to specify the current directory. You can also specify a path to the Dockerfile if it is not in the current directory.
