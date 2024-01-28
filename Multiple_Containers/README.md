@@ -1,4 +1,4 @@
-This will show how to do bind mounts with a docker build
+This will show how to do Multiple Containers for a project
 
 ## Requirements
 - Docker application installed on your host machine
