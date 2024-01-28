@@ -17,4 +17,5 @@ This will go over how to SSH into a docker container with the VSCode Remote Deve
 - Open the Remote Explorer extension in VSCode
 - Click on the docker container you want to Remote Explore  into at the top left
 - Once opened in new window or tab Git Clone your repo into the container
+- Do your work
 

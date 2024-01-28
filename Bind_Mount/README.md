@@ -12,6 +12,20 @@ In you can do bind mounts two differnt ways. Choose the -v or --mount flag. The 
 
 In our file we choose the -v option in our makefile to do the bind mount. This allows us to utilize the directory /app of the root user in the container. 
 
+THis just keeps your file structure clean and allows you to keep your code in a directory on your local machine while using vscode extensions. 
+
+You can use the shell in the container to get into the environment and run commands inside the container while using the vscode extensions.
 
 
-Still issues with CHMOD with files in the bind mount. I think it is because the files are owned by root and not the user. I think I need to change the user in the container to the same user as the host machine. I think I can do this with the USER command in the Dockerfile. I will try this next.
+## Usage
+This Dockerfile is tailored for Python applications that require specific packages and run on port 5000. To build and run a container using this Dockerfile:
+
+1. Place the Dockerfile in the root of your Python project directory.
+2. Ensure you have a `requirements.txt` file listing your dependencies.
+3. Build the Docker image: `docker build -t your-image-name .`
+4. Run the container: `docker run -p 5000:5000 your-image-name`
+
+## Customization
+- You can change the base image and Python version according to your application's requirements.
+- Adjust the `WORKDIR`, `COPY`, and `EXPOSE` directives to suit your project's structure and networking needs.
+- Modify environment variables as per your application configuration.

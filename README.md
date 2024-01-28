@@ -34,10 +34,22 @@ The requirements.txt file is a text file that contains a list of all the python 
 ## Extensions.text/extensions.sh
 I also have a script that will take your vscode extentions, put them into an extensions.txt file, and then install them into the docker container. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine.
 
+# Docker Commands that are useful to know
+- `docker build -t <image-name> .` - This command will build the docker image using the Dockerfile in the current directory. The -t flag is used to tag the docker image with a name. The . is used to specify the current directory. You can also specify a path to the Dockerfile if it is not in the current directory.
+- `docker run -p <host-port>:<container-port> <image-name>` - This command will run the docker container using the docker image. The -p flag is used to specify the port mapping. The host-port is the port on your host machine that you want to map to the container-port. The container-port is the port that the application is running on inside the container. The image-name is the name of the docker image you want to run.
+- `docker ps` - This command will list all the running docker containers.
+- `docker ps -a` - This command will list all the docker containers that are running and not running.
+- `docker exec -it <container-name> bash` - This command will open a bash shell inside the docker container. The -it flag is used to open an interactive terminal. The container-name is the name of the docker container you want to open a bash shell in.
+- `exit` - This command will exit the bash shell inside the docker container.
+- `docker stop <container-name>` - This command will stop the docker container. The container-name is the name of the docker container you want to stop.
+- `docker rm <container-name>` - This command will remove the docker container. The container-name is the name of the docker container you want to remove.
+- `docker rmi <image-name>` - This command will remove the docker image. The image-name is the name of the docker image you want to remove.
+- `docker images` - This command will list all the docker images on your host machine.
+- `docker volume ls` - This command will list all the docker volumes on your host machine.
+- `docker volume rm <volume-name>` - This command will remove the docker volume. The volume-name is the name of the docker volume you want to remove.
+- `docker volume prune` - This command will remove all the docker volumes on your host machine.
 
 # TODO
-- [ ] Add USER to Dockerfile for files during build mount
-- [ ] FROM command can be used to pull and image from a previous build one and start from there
 - [ ] Look add volumes for data persistence
 - [ ] Make a script for the Dockerfile commands that are ok to use after build
 - [ ] 
