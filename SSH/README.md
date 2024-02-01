@@ -7,6 +7,7 @@ This will go over how to SSH into a docker container with the VSCode Remote Deve
 - Makefile extensions (optional) but used in this repo
 - Dockerfile extension in VSCode
 - Remote Explorer extension in VSCode
+- Dev Container extension in VSCode
 
 # Steps in order to SSH into a docker container
 - Have requirements installed
