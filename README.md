@@ -20,7 +20,7 @@ This will show how to run multiple containers with docker compose.
 This will go over how to SSH into a docker container with the VSCode Remote Development extension.
 
 ## Multiple Containers
-This will show how to run multiple containers with docker compose.
+This will show how to run multiple containers with docker compose and volumes for data persistence.
 
 ## Dockerfile
 The Dockerfile is a text file that contains everything needed to build a docker image. The Dockerfile is used by the docker build command to create the docker image with all the software and dependencies needed to run the application. The Dockerfile is also used to create a docker container from the docker image. The docker container is the running instance of the docker image. The docker container is what you will interact with to run the application.
