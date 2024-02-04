@@ -63,7 +63,9 @@ How to push an image to Docker Hub
 - `docker push <docker-hub-username>/<image-name>` - This command will push the docker image to Docker Hub. The docker-hub-username is your Docker Hub username and the image-name is the name of the docker image you want to push.
 
 # TODO
-- [ ] Look add volumes for data persistence
-- [ ] Make a script for the Dockerfile commands that are ok to use after build
-- [ ] Docker compose file example for running multiple containers
+- [x] Look add volumes for data persistence
+- [x] Make a script for the Dockerfile commands that are ok to use after build
+- [x] Docker compose file example for running multiple containers
 - [ ] Make a video to show how to use the repo
+- [ ] Add a section for Docker Hub
+- [ ] Complete Google Slide and add it to the repo
