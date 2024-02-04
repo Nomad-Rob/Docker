@@ -1,31 +1,45 @@
-version: '3.8'
+version: '3.8'  # Specifies the version of the Docker Compose file format
 
 services:
   backend:
-    build: ./backend
+    build: ./backend  # Path to the Dockerfile for building the backend image
     volumes:
-      - ./backend:/app  # Bind mount the backend directory
+      - ./backend:/app  # Bind mount: Maps the local 'backend' directory to '/app' in the container
     ports:
-      - "5000:5000"
+      - "5000:5000"  # Port mapping: Maps port 5000 of the host to port 5000 of the container
 
   frontend:
-    build: ./frontend
+    build: ./frontend  # Path to the Dockerfile for building the frontend image
     volumes:
-      - ./frontend/src:/app/src  # Bind mount the frontend source directory
-      - ./frontend/public:/app/public  # Bind mount the frontend public directory
+      - ./frontend/src:/app/src  # Bind mount: Maps the 'frontend/src' directory to '/app/src' in the container
+      - ./frontend/public:/app/public  # Bind mount: Maps the 'frontend/public' directory to '/app/public' in the container
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Port mapping: Maps port 3000 of the host to port 3000 of the container
 
   db:
-    image: postgres:12
+    image: postgres:12  # Uses the official PostgreSQL version 12 image from Docker Hub
     volumes:
-      - db-data:/var/lib/postgresql/data  # Named volume for persisting db data
+      - db-data:/var/lib/postgresql/data  # Named volume: Persists database data even after the container is stopped or deleted
     ports:
-      - "5432:5432"
+      - "5432:5432"  # Port mapping: Maps port 5432 of the host to port 5432 of the container
     environment:
-      POSTGRES_DB: appdb
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_DB: appdb  # Environment variable: Sets the default database name
+      POSTGRES_USER: user  # Environment variable: Sets the default username
+      POSTGRES_PASSWORD: password  # Environment variable: Sets the password for the database
 
 volumes:
-  db-data:
+  db-data:  # Declaration of the named volume used by the database service
+
+
+# Services: Defines the different containers you want to run. In this file, there are three services: backend, frontend, and db.
+
+# Build: Specifies the location of the Dockerfile for building the image.
+
+# Volumes: Used for data persistence. Bind mounts are used for the backend and frontend for live code updating,
+# and a named volume is used for the db service for data persistence.
+
+# Ports: Maps the ports from the container to the host system, allowing external access to the services.
+
+# Environment: Sets environment variables in the container, useful for configuration (particularly important in the database service).
+
+# Named Volume: db-data is a named volume, which is better for persisting data in production-like environments and is managed by Docker.
