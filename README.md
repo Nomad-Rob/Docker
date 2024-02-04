@@ -69,3 +69,4 @@ How to push an image to Docker Hub
 - [ ] Make a video to show how to use the repo
 - [ ] Add a section for Docker Hub
 - [ ] Complete Google Slide and add it to the repo
+- [ ] Add a section for Docker Volumes
