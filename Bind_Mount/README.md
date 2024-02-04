@@ -6,6 +6,22 @@ This will show how to do bind mounts with a docker build
 - IDE (VSCode or whatever you prefer)
 - Makefile extensions (optional) but used in this repo
 
+## Usage
+This Dockerfile is tailored for Python applications that require specific packages and run on port 5000. To build and run a container using this Dockerfile:
+
+1. Place the Dockerfile in the root of your Python project directory.
+2. Ensure you have a `requirements.txt` file listing your dependencies.
+3. Build the Docker image: `docker build -t your-image-name .`
+4. Run the container: `docker run -p 5000:5000 your-image-name`
+5. Access your application at `http://localhost:5000`
+6. Enter the container's shell: `docker exec -it your-container-name sh` when this happens you will be in the environment of the container and can run commands in the container while using the vscode extensions.
+
+## Customization
+- You can change the base image and Python version according to your application's requirements.
+- Adjust the `WORKDIR`, `COPY`, and `EXPOSE` directives to suit your project's structure and networking needs.
+- Modify environment variables as per your application configuration.
+
+
 # Docker Bind Mounts
 
 This document explains how to use bind mounts in Docker, focusing on two different flags: `-v` and `--mount`. Bind mounts are a powerful feature that allows you to mount directories or files from the host machine into a container, enabling a wide range of functionalities including file sharing and persistent data storage.
@@ -30,16 +46,3 @@ In our file we choose the -v option in our makefile to do the bind mount. This a
 THis just keeps your file structure clean and allows you to keep your code in a directory on your local machine while using vscode extensions. 
 
 **You can use the shell in the container to get into the environment and run commands inside the container while using the vscode extensions.**
-
-## Usage
-This Dockerfile is tailored for Python applications that require specific packages and run on port 5000. To build and run a container using this Dockerfile:
-
-1. Place the Dockerfile in the root of your Python project directory.
-2. Ensure you have a `requirements.txt` file listing your dependencies.
-3. Build the Docker image: `docker build -t your-image-name .`
-4. Run the container: `docker run -p 5000:5000 your-image-name`
-
-## Customization
-- You can change the base image and Python version according to your application's requirements.
-- Adjust the `WORKDIR`, `COPY`, and `EXPOSE` directives to suit your project's structure and networking needs.
-- Modify environment variables as per your application configuration.

@@ -6,8 +6,8 @@
 
 # Change these variables to match your project
 NAME="Rob Farley"
-IMAGE=nomadrob/bind_mount_test
-CONTAINER=bind_mount
+IMAGE=nomadrob/remote_explore
+CONTAINER=remote_explore_test
 TAG=latest
 PORT=5000
 

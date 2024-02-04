@@ -9,7 +9,7 @@ This will go over how to SSH into a docker container with the VSCode Remote Deve
 - Remote Explorer extension in VSCode
 - Dev Container extension in VSCode
 
-# Steps in order to SSH into a docker container
+# Steps in order to remote explore into a docker container with Dev Boxes
 - Have requirements installed
 - On your local machine create a directory for your project
 - Check the Makefile/Dockerfile is setup correctly the way you want it

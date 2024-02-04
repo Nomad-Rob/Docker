@@ -7,6 +7,14 @@ This will show how to do Multiple Containers for a project
 - IDE (VSCode or whatever you prefer)
 - Makefile extensions (optional) but used in this repo
 
+## Usage
+This Docker Compose file is designed to create a multi-container Docker application with three main services: `frontend`, `backend`,`database`, and `loadbalance `. Each service is configured to meet specific requirements of a typical web application stack.
+1. Place the Docker Compose file in the root of your project directory.
+2. Ensure you have a `frontend`, `backend`, `database`, and directory.
+3. Build the Docker image: `docker-compose build`
+4. Run the container: `docker-compose up`
+5. Access your application at `http://localhost:5173`
+
 ## Docker Compose
 This file will show how to run multiple containers with docker compose. Docker compose is a tool that allows you to run multiple containers at once. This is useful if you have an application that requires multiple containers to run. For example if you have a web application that requires a database and a web server. You can use docker compose to run both containers at once. This will allow you to run your application locally without having to deploy it to a server. This is useful for testing and development purposes.
 
@@ -80,3 +88,14 @@ They offer better performance for storing and accessing data compared to bind mo
 ### Security
 
 Docker volumes are more secure than bind mounts as they don’t allow direct access to the host file system.
+
+## NGINX Configuration
+
+### What is NGINX?
+NGINX is a popular open-source web server and reverse proxy server. It is known for its high performance, stability, and low resource consumption. NGINX is widely used to serve web content, manage traffic, and handle load balancing.
+
+### NGINX Configuration in Docker
+In this project, NGINX is used as a reverse proxy server to route requests to the frontend and backend services. The NGINX configuration file is located at `./nginx/nginx.conf` and is mounted into the NGINX container at `/etc/nginx/nginx.conf`.
+
+### Key Configuration Points
+- **Server Blocks**: The NGINX configuration file contains two server blocks, one for the frontend service and one for the backend service. Each server block defines the location of the service and the port it is running on.

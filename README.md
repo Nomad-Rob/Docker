@@ -10,37 +10,21 @@
 ## Setup
 In this repo we will see the different ways to setup a docker container. One way will be to bind mount a directory from your host machine to the container. The other way is to remote explore into the container with the VSCode Remote Development extension.
 
-## Bind Mount directory
-This will show how to do bind mounts with a docker build
-
-## Multiple Containers
-This will show how to run multiple containers with docker compose.
-
-## SSH into container
-This will go over how to SSH into a docker container with the VSCode Remote Development extension.
-
-## Multiple Containers
-This will show how to run multiple containers with docker compose and volumes for data persistence.
+## Folders
+- Bind_Mount
+- Multiple_Containers
+- Remote_Explore
 
 ## Dockerfile
 The Dockerfile is a text file that contains everything needed to build a docker image. The Dockerfile is used by the docker build command to create the docker image with all the software and dependencies needed to run the application. The Dockerfile is also used to create a docker container from the docker image. The docker container is the running instance of the docker image. The docker container is what you will interact with to run the application.
 
-## Dockerfile Syntax
+Dockerfile Syntax
 The Dockerfile is made up of a series of commands that are executed in order to build the docker image. The commands are executed in order from top to bottom. During our process we listed these out in a Makefile to make it easier to build the docker image. The Makefile is not required but it is a good practice to use one. This helps with automation and makes it easier to remember the commands needed to build the docker image.
 
 ## Dockerfile Commands
 To find a list of all Dockerfile commander you can go to the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/). Below is a list of the commands we used in our Dockerfile.
 
-## Makefile
-The Makefile is a text file that contains a set of commands to be executed. The Makefile is used to automate the process of building the docker image. The Makefile is not required but it is a good practice to use one. For scalability it is a good idea to use a Makefile to automate the process of building the docker image.
-
-## requirements.txt
-The requirements.txt file is a text file that contains a list of all the python packages needed to run the application. This will change depending on the application you are building. This file is used by the Dockerfile to install all the python packages needed to run the application.
-
-## Extensions.text/extensions.sh
-I also have a script that will take your vscode extentions, put them into an extensions.txt file, and then install them into the docker container. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine.
-
-# Docker Commands that are useful to know
+Docker Commands that are useful to know
 - `docker build -t <image-name> .` - This command will build the docker image using the Dockerfile in the current directory. The -t flag is used to tag the docker image with a name. The . is used to specify the current directory. You can also specify a path to the Dockerfile if it is not in the current directory.
 - `docker run -p <host-port>:<container-port> <image-name>` - This command will run the docker container using the docker image. The -p flag is used to specify the port mapping. The host-port is the port on your host machine that you want to map to the container-port. The container-port is the port that the application is running on inside the container. The image-name is the name of the docker image you want to run.
 - `docker ps` - This command will list all the running docker containers.
@@ -54,6 +38,29 @@ I also have a script that will take your vscode extentions, put them into an ext
 - `docker volume ls` - This command will list all the docker volumes on your host machine.
 - `docker volume rm <volume-name>` - This command will remove the docker volume. The volume-name is the name of the docker volume you want to remove.
 - `docker volume prune` - This command will remove all the docker volumes on your host machine.
+
+## Makefile
+The Makefile is a text file that contains a set of commands to be executed. The Makefile is used to automate the process of building the docker image. The Makefile is not required but it is a good practice to use one. For scalability it is a good idea to use a Makefile to automate the process of building the docker image.
+
+## requirements.txt
+The requirements.txt file is a text file that contains a list of all the python packages needed to run the application. This will change depending on the application you are building. This file is used by the Dockerfile to install all the python packages needed to run the application.
+
+## Extensions.text/extensions.sh
+I also have a script that will take your vscode extentions, put them into an extensions.txt file, and then install them into the docker container. This is useful if you want to use the VSCode Remote Development extension to remote explore into the docker container. This will allow you to use the same extensions in the docker container as you do on your host machine.
+
+## Docker Compose
+Docker Compose is a tool that allows you to run multiple containers at once. This is useful if you have an application that requires multiple containers to run. For example if you have a web application that requires a database and a web server. You can use docker compose to run both containers at once. This will allow you to run your application locally without having to deploy it to a server. This is useful for testing and development purposes.
+
+## Docker Hub
+Docker Hub is a cloud-based repository in which you can store and share docker images. You can use Docker Hub to store and share your own images, or you can use it to find and use images created by others. Docker Hub is a great resource for finding pre-built images that you can use to run your applications. You can also use Docker Hub to store your own images and share them with others during your projects.
+
+How to pull an image from Docker Hub like your friend's image
+- `docker pull <image-name>` - This command will pull the docker image from Docker Hub. The image-name is the name of the docker image you want to pull.
+
+How to push an image to Docker Hub
+- `docker login` - This command will log you into Docker Hub. You will need to enter your Docker Hub username and password.
+- `docker tag <image-name> <docker-hub-username>/<image-name>` - This command will tag the docker image with your Docker Hub username. This is required in order to push the image to Docker Hub.
+- `docker push <docker-hub-username>/<image-name>` - This command will push the docker image to Docker Hub. The docker-hub-username is your Docker Hub username and the image-name is the name of the docker image you want to push.
 
 # TODO
 - [ ] Look add volumes for data persistence
