@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app  # Bind mount the backend directory
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend/src:/app/src  # Bind mount the frontend source directory
+      - ./frontend/public:/app/public  # Bind mount the frontend public directory
+    ports:
+      - "3000:3000"
+
+  db:
+    image: postgres:12
+    volumes:
+      - db-data:/var/lib/postgresql/data  # Named volume for persisting db data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+
+volumes:
+  db-data:

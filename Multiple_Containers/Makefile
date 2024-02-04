@@ -1,68 +1,35 @@
-# .PHONY is used to tell make that these commands are not files
-.PHONY: install run clean
+# Makefile for managing Docker containers
 
-# All commands start with make
+# Variables
+COMPOSE = docker-compose
 
-
-# Change these variables to match your project
-NAME="Rob Farley"
-IMAGE=nomadrob/bind_mount_test
-CONTAINER=bind_mount
-TAG=latest
-PORT=5000
-
-HOST_DIRECTORY=./
-CONTAINER_DIRECTORY=/Docker
-
-# Builds a docker image for a development box with an image name
+# Build the Docker images
 build:
-	@docker build . -t "${IMAGE}:${TAG}"
+	$(COMPOSE) build
 
-# Runs the image name in a container
-# This will run the image in the background and map port 2022 to the ssh port on the container
-# Feel free to add more ports as needed, (ex: docker run -d -p 2022:22 -p 9000:80 image name)
-# -v.:/app mounts the current directory to the /app directory in the container
+# Start the containers
 run:
-	@docker run -d --name ${CONTAINER} -p ${PORT} -e API_HOST=0.0.0.0 -e API_PORT=5000 -v ${HOST_DIRECTORY}:${CONTAINER_DIRECTORY} ${IMAGE}
+	$(COMPOSE) up -d
 
-start:
-	@docker start ${IMAGE}
-
-# SSH into the running container
-ssh:
-	@ssh -p 2022 root@localhost
-	
-# Publishes the image to Docker Hub
-publish: build
-	@docker push ${IMAGE}:${TAG}
-  
-# Install dependencies for the project
-install: requirements.txt
-	@pip3 install -r $<
-	
-# Stop all running Docker containers
+# Stop the containers
 stop:
-	@docker stop ${IMAGE}
+	$(COMPOSE) down
 
-# Remove container
+# Stop and remove containers, networks, images, and volumes
 clean:
-	@docker stop ${CONTAINER}
-	@docker rm ${CONTAINER}
-  
-# Remove image
-remove:
-	@docker stop ${IMAGE}
-	@docker rm ${IMAGE}
+	$(COMPOSE) down --rmi all --volumes
 
-# Logs container
+# Display the status of the containers
+status:
+	$(COMPOSE) ps
+
+# Tail the logs of the containers
 logs:
-	@docker logs ${IMAGE}
+	$(COMPOSE) logs -f
 
-# Remove all Docker images, containers, and volumes
-nuke:
-	@docker system prune -af
+# Rebuild and start the containers
+rebuild: build up
 
-# Reset known hosts on the local machine for port 2022
-# This may need to be run if you make a new dev-box and aren't able to ssh into it
-reset-known-hosts:
-	@ssh-keygen -R [localhost]:2022
+# Default action
+.PHONY: up down clean status logs build rebuild
+default: up
