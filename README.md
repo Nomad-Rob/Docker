@@ -62,6 +62,12 @@ How to push an image to Docker Hub
 - `docker tag <image-name> <docker-hub-username>/<image-name>` - This command will tag the docker image with your Docker Hub username. This is required in order to push the image to Docker Hub.
 - `docker push <docker-hub-username>/<image-name>` - This command will push the docker image to Docker Hub. The docker-hub-username is your Docker Hub username and the image-name is the name of the docker image you want to push.
 
+## Resources Videos
+- [Youtube Video](https://www.youtube.com/watch?v=uhDYhdMmSeg) - This video is a great resource for learning how to use Volume Mounts and Bind Mounts in Docker
+- [Youtube Video](https://www.youtube.com/watch?v=Qw9zlE3t8Ko) - This video is a great resource for learning how to use Docker Compose to run multiple containers at once
+- [Docker Link](https://docs.docker.com/manuals/) - This link is a great resource for learning about the Docker
+
+
 # TODO
 - [x] Look add volumes for data persistence
 - [x] Make a script for the Dockerfile commands that are ok to use after build
