@@ -67,7 +67,8 @@ How to push an image to Docker Hub
 - [Youtube Video](https://www.youtube.com/watch?v=Qw9zlE3t8Ko) - This video is a great resource for learning how to use Docker Compose to run multiple containers at once
 - [Docker Link](https://docs.docker.com/manuals/) - This link is a great resource for learning about the Docker
 
-
+## Issues
+- If you have any issues with file permissions just RUN  `chmod -R 777 /<FOLDER NAME>` in the terminal where replace the `<FOLDER NAME>` with the folder name with the folder you are working in.
 # TODO
 - [x] Look add volumes for data persistence
 - [x] Make a script for the Dockerfile commands that are ok to use after build
