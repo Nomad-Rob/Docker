@@ -76,3 +76,7 @@ How to push an image to Docker Hub
 - [ ] Add a section for Docker Hub
 - [ ] Complete Google Slide and add it to the repo
 - [ ] Add a section for Docker Volumes
+
+# Questions
+- [ ] In Docker Hub if I bind mount a directory from my host machine to the container and I make changes to the files in the container will the changes be reflected on my host machine for both parties?
+- [ ] With Docker compose how can I have this in a production environment?
