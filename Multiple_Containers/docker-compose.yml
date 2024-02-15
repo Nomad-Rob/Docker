@@ -6,7 +6,7 @@ services:
     volumes:
       - ./backend:/app  # Bind mount: Maps the local 'backend' directory to '/app' in the container
     ports:
-      - "5000:5000"  # Port mapping: Maps port 5000 of the host to port 5000 of the container
+      - "5001:5001"  # Port mapping: Maps port 5000 of the host to port 5000 of the container
 
   frontend:
     build: ./frontend  # Path to the Dockerfile for building the frontend image
