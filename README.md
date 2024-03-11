@@ -10,6 +10,17 @@
 ## Setup
 In this repo we will see the different ways to setup a docker container. One way will be to bind mount a directory from your host machine to the container. The other way is to remote explore into the container with the VSCode Remote Development extension.
 
+## Issues
+If you are having issues with file/folder permissions try this below:
+Well in case you have it again instead of deleting you can do it this way:
+```
+sudo chown -R username path
+```
+Example:
+```
+sudo chown -R emanuel /home/emanuel/test/
+```
+
 ## Folders
 - Bind_Mount
 - Multiple_Containers
